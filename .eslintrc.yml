@@ -10,5 +10,8 @@ parserOptions:
 rules: {
   "no-console": 0,
   "import/extensions": [0, { "js": "always"}],
-  "no-await-in-loop": 0
+  "no-await-in-loop": 0,
+  "brace-style": [2, "stroustrup"],
+  "import/no-unresolved": "off",
+  "no-constant-condition": "off"
 }
