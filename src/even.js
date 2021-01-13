@@ -17,8 +17,13 @@ export default async () => {
       count += 1;
       console.log('Correct!');
     }
-    else {
-      count = 0;
+    else if (rnum % 2 !== 0 && answer !== 'no') {
+      console.log(` '${answer}' is wrong answer ;(. Correct answer was 'no'.Let's try again, ${name}!`);
+      break;
+    }
+    else if (rnum % 2 === 0 && answer !== 'yes') {
+      console.log(` '${answer}' is wrong answer ;(. Correct answer was 'yes'.Let's try again, ${name}!`);
+      break;
     }
     if (count === 3) {
       console.log(`Congratulations, ${name}!`);
