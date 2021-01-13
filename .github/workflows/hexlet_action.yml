@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: GITHUB_WORKSPACE 
+      - name: gthwrkspc 
       run: echo $GITHUB_WORKSPACE
       - name: npm install
         run: |
