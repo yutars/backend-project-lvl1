@@ -21,3 +21,4 @@ export const Congratulation = (name) => {
   console.log(`Congratulations, ${name}!`);
 };
 export const maxCountRounds = () => 3;
+export const randomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
