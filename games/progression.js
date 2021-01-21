@@ -12,7 +12,7 @@ export default async () => {
     const arr = [];
     arr[0] = firstEl;
     for (let i = 1; i < progLength; i += 1) {
-      arr.push(`${arr[0] + i * step} `);
+      arr.push(`${arr[0] + i * step}`);
     }
     let str = '';
     for (let i = 0; i < progLength; i += 1) {
