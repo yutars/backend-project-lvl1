@@ -2,7 +2,7 @@
   "name": "@hexlet/brain-games",
   "type": "module",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/yutars/backend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/yutars/backend-project-lvl1/actions)",
+  "description": "The set of cli-games",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/yutars/backend-project-lvl1.git"
   },
-  "author": "",
+  "author": "yuri tarasov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yutars/backend-project-lvl1/issues"
@@ -22,8 +22,12 @@
     "brain-even": "bin/brain-even.js",
     "brain-calc": "bin/brain-calc.js",
     "brain-gcd": "bin/brain-gcd.js",
+<<<<<<< HEAD
+    "brain-progression": "bin/brain-progression.js"
+=======
     "brain-progression": "bin/brain-progression.js",
     "brain-prime": "bin/brain-prime.js"
+>>>>>>> 57896cbb7886c9c6d634f7aef6394ed7e107cd66
   },
   "dependencies": {
     "readline-sync": "^1.4.10"

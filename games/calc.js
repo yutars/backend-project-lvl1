@@ -1,28 +1,27 @@
 import * as q from '../src/index.js';
+import * as rnd from '../src/rnd.js';
 
 export default async () => {
   const ops = ['*', '+', '-'];
-  const name = q.prompt();
-  console.log('What is the result of the expression?');
+  const name = q.invite();
+  q.getPointGame('What is the result of the expression?');
   let count = 0;
-  while (count < q.maxCountRounds()) {
-    const ofirst = q.randomNum(-100, 100);
-    const osecond = q.randomNum(-100, 100);
-    const i = q.randomNum(0, 2);
+  while (count < q.getMaxCountRounds()) {
+    const ofirst = rnd.getRandomNum(-100, 100);
+    const osecond = rnd.getRandomNum(-100, 100);
+    const i = rnd.getRandomNum(0, 2);
     const calc = (first, second, op) => {
       let result = first;
       if (op === '+') {
         result = first + second;
-      }
-      else if (op === '-') {
+      } else if (op === '-') {
         result = first - second;
-      }
-      else if (op === '*') {
+      } else if (op === '*') {
         result = first * second;
       }
       return result;
     };
-    const answer = +q.Question(`${ofirst} ${ops[i]} ${osecond}`);
+    const answer = +q.askQuestion(`${ofirst} ${ops[i]} ${osecond}`);
     const ranswer = calc(ofirst, osecond, ops[i]);
     if (answer !== ranswer) {
       q.isWrong(answer, ranswer, name);
@@ -31,6 +30,6 @@ export default async () => {
     count += 1;
     q.isCorrect();
   }
-  q.Congratulation(name);
+  q.Congratulate(name);
   return true;
 };

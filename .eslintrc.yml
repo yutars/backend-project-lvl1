@@ -1,6 +1,5 @@
 env:
   node: true
-  browser: true
   es2021: true
 extends: 
   - airbnb-base
@@ -12,7 +11,4 @@ rules: {
   "no-console": 0,
   "import/extensions": [0, { "js": "always"}],
   "no-await-in-loop": 0,
-  "brace-style": [2, "stroustrup"],
-  "import/no-unresolved": 0,
-  "no-constant-condition": 0
 }
