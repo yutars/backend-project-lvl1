@@ -30,6 +30,6 @@ export default async () => {
     count += 1;
     q.isCorrect();
   }
-  q.Congratulate(name);
+  q.сongratulate(name);
   return true;
 };
