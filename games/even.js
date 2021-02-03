@@ -20,6 +20,6 @@ export default async () => {
       return false;
     }
   }
-  q.Congratulate(name);
+  q.сongratulate(name);
   return true;
 };
