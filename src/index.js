@@ -20,7 +20,7 @@ export const getPointGame = (str) => {
 export const isWrong = (lanswer, ranswer, name) => {
   console.log(` '${lanswer}' is wrong answer ;(. Correct answer was '${ranswer}'.Let's try again, ${name}!`);
 };
-export const Congratulate = (name) => {
+export const сongratulate = (name) => {
   console.log(`Congratulations, ${name}!`);
 };
 export const getMaxCountRounds = () => 3;
