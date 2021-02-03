@@ -1,4 +1,5 @@
 import * as q from '../src/index.js';
+import * as rnd from '../src/rnd.js';
 
 export default async () => {
   const isPrime = (n) => {
@@ -10,12 +11,12 @@ export default async () => {
     }
     return 'no';
   };
-  const name = q.prompt();
+  const name = q.invite();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   let count = 0;
-  while (count < q.maxCountRounds()) {
-    const rnum = q.randomNum(2, 20);
-    const answer = q.Question(rnum);
+  while (count < q.getMaxCountRounds()) {
+    const rnum = rnd.getRandomNum(2, 20);
+    const answer = q.askQuestion(rnum);
     const ranswer = isPrime(rnum);
     if (answer !== ranswer) {
       q.isWrong(answer, ranswer, name);
@@ -24,6 +25,6 @@ export default async () => {
     count += 1;
     q.isCorrect();
   }
-  q.Congratulation(name);
+  q.сongratulate(name);
   return true;
 };
