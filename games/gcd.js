@@ -10,8 +10,8 @@ export default async () => {
   };
   let count = 0;
   while (count < q.getMaxCountRounds()) {
-    const c = rnd.getRandomNum(-100, 100);
-    const d = rnd.getRandomNum(-100, 100);
+    const c = +rnd.getRandomNum(-100, 100);
+    const d = +rnd.getRandomNum(-100, 100);
     const answer = +q.askQuestion(`${c} ${d}`);
     const ranswer = gcd(c, d);
     if (answer !== ranswer) {
