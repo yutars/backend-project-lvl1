@@ -23,4 +23,4 @@ export const isWrong = (lanswer, ranswer, name) => {
 export const сongratulate = (name) => {
   console.log(`Congratulations, ${name}!`);
 };
-export const getMaxCountRounds = () => 3;
+export const getMaxCountRounds = 3;
