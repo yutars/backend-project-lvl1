@@ -1,7 +1,7 @@
 import * as q from '../src/index.js';
-import * as rnd from '../src/rnd.js';
+import * as utils from '../src/utils.js';
 
-export default async () => {
+export default () => {
   const isPrime = (n) => {
     if (n > 1) {
       for (let i = 2; i < n; i += 1) {
@@ -12,10 +12,10 @@ export default async () => {
     return 'no';
   };
   const name = q.invite();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+  q.getPointGame('Answer "yes" if given number is prime. Otherwise answer "no".');
   let count = 0;
-  while (count < q.getMaxCountRounds()) {
-    const rnum = rnd.getRandomNum(2, 20);
+  while (count < q.getMaxCountRounds) {
+    const rnum = utils.getRandomNum(2, 20);
     const answer = q.askQuestion(rnum);
     const ranswer = isPrime(rnum);
     if (answer !== ranswer) {

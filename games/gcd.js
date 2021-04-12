@@ -1,7 +1,7 @@
 import * as q from '../src/index.js';
-import * as rnd from '../src/rnd.js';
+import * as utils from '../src/utils.js';
 
-export default async () => {
+export default () => {
   const name = q.invite();
   q.getPointGame('Find the greatest common divisor of given numbers.');
   const gcd = (a, b) => {
@@ -9,9 +9,9 @@ export default async () => {
     return gcd(b, a % b);
   };
   let count = 0;
-  while (count < q.getMaxCountRounds()) {
-    const c = +rnd.getRandomNum(-100, 100);
-    const d = +rnd.getRandomNum(-100, 100);
+  while (count < q.getMaxCountRounds) {
+    const c = +utils.getRandomNum(-100, 100);
+    const d = +utils.getRandomNum(-100, 100);
     const answer = +q.askQuestion(`${c} ${d}`);
     const ranswer = gcd(c, d);
     if (answer !== ranswer) {

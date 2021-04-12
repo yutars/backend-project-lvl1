@@ -1,15 +1,15 @@
 import * as q from '../src/index.js';
-import * as rnd from '../src/rnd.js';
+import * as utils from '../src/utils.js';
 
-export default async () => {
+export default () => {
   const ops = ['*', '+', '-'];
   const name = q.invite();
   q.getPointGame('What is the result of the expression?');
   let count = 0;
-  while (count < q.getMaxCountRounds()) {
-    const ofirst = rnd.getRandomNum(-100, 100);
-    const osecond = rnd.getRandomNum(-100, 100);
-    const i = rnd.getRandomNum(0, 2);
+  while (count < q.getMaxCountRounds) {
+    const ofirst = utils.getRandomNum(-100, 100);
+    const osecond = utils.getRandomNum(-100, 100);
+    const i = utils.getRandomNum(0, 2);
     const calc = (first, second, op) => {
       let result = first;
       if (op === '+') {

@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import qna from '../games/even.js';
+import isEven from '../games/even.js';
 
-qna();
+isEven();

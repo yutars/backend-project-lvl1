@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import prompt1 from '../src/cli.js';
+import getPrompt from '../src/cli.js';
 
-prompt1();
+getPrompt();
