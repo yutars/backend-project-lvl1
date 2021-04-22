@@ -1,5 +1,5 @@
-import * as q from '../src/index.js';
-import * as utils from '../src/utils.js';
+import engine from '../src/index.js';
+import getRandomNum from '../src/utils.js';
 
 const gcd = (a, b) => {
   if (b === 0) return Math.abs(a);
@@ -13,14 +13,14 @@ export default () => {
   let paramGame = {};
   paramGame.pointGame = pointGame;
   paramGame.count = 0;
-  paramGame = q.engine(paramGame);
+  paramGame = engine(paramGame);
   paramGame.pointGame = '';
   while (paramGame.count > 0) {
-    c = +utils.getRandomNum(-100, 100);
-    d = +utils.getRandomNum(-100, 100);
+    c = +getRandomNum(-100, 100);
+    d = +getRandomNum(-100, 100);
     paramGame.question = `Question: ${c} ${d}`;
     paramGame.correctAnswer = gcd(c, d);
-    paramGame = q.engine(paramGame);
+    paramGame = engine(paramGame);
   }
   return true;
 };

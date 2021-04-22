@@ -1,5 +1,5 @@
-import * as q from '../src/index.js';
-import * as utils from '../src/utils.js';
+import engine from '../src/index.js';
+import getRandomNum from '../src/utils.js';
 
 const toCalc = (first, second, op) => {
   let result = first;
@@ -28,15 +28,15 @@ export default () => {
   let paramGame = {};
   paramGame.pointGame = pointGame;
   paramGame.count = 0;
-  paramGame = q.engine(paramGame);
+  paramGame = engine(paramGame);
   paramGame.pointGame = '';
   while (paramGame.count > 0) {
-    ofirst = utils.getRandomNum(-100, 100);
-    osecond = utils.getRandomNum(-100, 100);
-    i = utils.getRandomNum(0, 2);
+    ofirst = getRandomNum(-100, 100);
+    osecond = getRandomNum(-100, 100);
+    i = getRandomNum(0, 2);
     paramGame.question = `Question: ${ofirst} ${ops[i]} ${osecond}`;
     paramGame.correctAnswer = toCalc(ofirst, osecond, ops[i]);
-    paramGame = q.engine(paramGame);
+    paramGame = engine(paramGame);
   }
   return true;
 };

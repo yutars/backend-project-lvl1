@@ -1,5 +1,5 @@
-import * as q from '../src/index.js';
-import * as utils from '../src/utils.js';
+import engine from '../src/index.js';
+import getRandomNum from '../src/utils.js';
 
 const isNumberPrime = (n) => {
   if (n > 1) {
@@ -16,13 +16,13 @@ export default () => {
   let paramGame = {};
   paramGame.pointGame = pointGame;
   paramGame.count = 0;
-  paramGame = q.engine(paramGame);
+  paramGame = engine(paramGame);
   paramGame.pointGame = '';
   while (paramGame.count > 0) {
-    const rnum = utils.getRandomNum(2, 20);
+    const rnum = getRandomNum(2, 20);
     paramGame.question = `Question: ${rnum}`;
     paramGame.correctAnswer = isNumberPrime(rnum);
-    paramGame = q.engine(paramGame);
+    paramGame = engine(paramGame);
   }
   return true;
 };

@@ -1,5 +1,5 @@
-import * as q from '../src/index.js';
-import * as utils from '../src/utils.js';
+import engine from '../src/index.js';
+import getRandomNum from '../src/utils.js';
 
 const pointGame = 'What number is missing in the progression?';
 export default () => {
@@ -12,13 +12,13 @@ export default () => {
   let paramGame = {};
   paramGame.pointGame = pointGame;
   paramGame.count = 0;
-  paramGame = q.engine(paramGame);
+  paramGame = engine(paramGame);
   paramGame.pointGame = '';
   while (paramGame.count > 0) {
-    progLength = utils.getRandomNum(5, 10);
-    randomEl = utils.getRandomNum(0, progLength - 1);
-    firstEl = utils.getRandomNum(0, 100);
-    step = utils.getRandomNum(1, 5);
+    progLength = getRandomNum(5, 10);
+    randomEl = getRandomNum(0, progLength - 1);
+    firstEl = getRandomNum(0, 100);
+    step = getRandomNum(1, 5);
     geomProgression[0] = firstEl;
     for (let i = 1; i < progLength; i += 1) {
       geomProgression.push(`${geomProgression[0] + i * step}`);
@@ -32,7 +32,7 @@ export default () => {
     paramGame.question = `Question: ${withoutMemberProgression}`;
     paramGame.correctAnswer = geomProgression[0] + randomEl * step;
     geomProgression = [];
-    paramGame = q.engine(paramGame);
+    paramGame = engine(paramGame);
   }
   return true;
 };
