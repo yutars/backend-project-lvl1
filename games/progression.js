@@ -29,7 +29,7 @@ export default () => {
         withoutMemberProgression += `${geomProgression[i]} `;
       } else withoutMemberProgression += '.. ';
     }
-    paramGame.question = withoutMemberProgression;
+    paramGame.question = `Question: ${withoutMemberProgression}`;
     paramGame.correctAnswer = geomProgression[0] + randomEl * step;
     geomProgression = [];
     paramGame = q.engine(paramGame);
