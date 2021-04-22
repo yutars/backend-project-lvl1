@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 
 const maxCountRounds = 3;
-export const engine = (obj) => {
+const engine = (obj) => {
   const paramGame = { ...obj };
   if (paramGame.count === 0) {
     paramGame.gamerName = readlineSync.question('May I have your name? ');
@@ -23,3 +23,4 @@ export const engine = (obj) => {
   if (paramGame.count === 0) console.log(`Congratulations, ${paramGame.gamerName}!`);
   return paramGame;
 };
+export default engine;
