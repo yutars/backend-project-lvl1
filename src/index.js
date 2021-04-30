@@ -1,26 +1,23 @@
 import readlineSync from 'readline-sync';
 
-const maxCountRounds = 3;
-const engine = (obj) => {
-  const paramGame = { ...obj };
-  if (paramGame.count === 0) {
-    paramGame.gamerName = readlineSync.question('May I have your name? ');
-    console.log(`Hello, ${paramGame.gamerName}!`);
-    console.log(paramGame.pointGame);
-    paramGame.count = maxCountRounds;
-    return paramGame;
+export const maxCountRounds = 3;
+export default (args) => {
+  const gamerName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${gamerName}!`);
+  const description = args[0];
+  console.log(description);
+  for (let i = 0; i < args[1].length; i += 1) {
+    const question = args[1][i][0];
+    console.log(question);
+    let answer = readlineSync.question('Your answer: ');
+    const correctAnswer = args[1][i][1];
+    if (+answer === correctAnswer) answer = +answer;
+    if (answer !== correctAnswer) {
+      console.log(` '${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.Let's try again, ${gamerName}!`);
+      return false;
+    }
+    console.log('Correct!');
   }
-  console.log(paramGame.question);
-  let answer = readlineSync.question('Your answer: ');
-  if (+answer === paramGame.correctAnswer) answer = +answer;
-  if (answer !== paramGame.correctAnswer) {
-    console.log(` '${answer}' is wrong answer ;(. Correct answer was '${paramGame.correctAnswer}'.Let's try again, ${paramGame.gamerName}!`);
-    paramGame.count = 0;
-    return paramGame;
-  }
-  console.log('Correct!');
-  paramGame.count -= 1;
-  if (paramGame.count === 0) console.log(`Congratulations, ${paramGame.gamerName}!`);
-  return paramGame;
+  console.log(`Congratulations, ${gamerName}!`);
+  return true;
 };
-export default engine;
