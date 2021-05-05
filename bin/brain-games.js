@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import getPrompt from '../src/cli.js';
+import runWelcomGame from '../src/cli.js';
 
-getPrompt();
+runWelcomGame();

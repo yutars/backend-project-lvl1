@@ -1,4 +1,4 @@
-import startQuest, { maxCountRounds } from '../index.js';
+import run, { maxCountRounds } from '../index.js';
 import getRandomNum from '../utils.js';
 
 const isNumberPrime = (n) => {
@@ -13,16 +13,12 @@ const isNumberPrime = (n) => {
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 export default () => {
-  const qna = [];
-  qna.push(description);
-  qna.push([]);
-  for (let j = maxCountRounds; j > 0; j -= 1) {
+  const rounds = [];
+  for (let i = maxCountRounds; i > 0; i -= 1) {
     const randomNum = getRandomNum(2, 20);
-    const question = `Question: ${randomNum}`;
+    const question = randomNum;
     const correctAnswer = isNumberPrime(randomNum);
-    const questionAndAnswer = 1;
-    qna[questionAndAnswer].push([question, correctAnswer]);
+    rounds.push([question, correctAnswer]);
   }
-  startQuest(qna);
-  return true;
+  run(description, rounds);
 };

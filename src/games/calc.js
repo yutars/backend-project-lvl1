@@ -1,4 +1,4 @@
-import startQuest, { maxCountRounds } from '../index.js';
+import run, { maxCountRounds } from '../index.js';
 import getRandomNum from '../utils.js';
 
 const toCalc = (first, second, op) => {
@@ -22,18 +22,14 @@ const toCalc = (first, second, op) => {
 const description = 'What is the result of the expression?';
 export default () => {
   const ops = ['*', '+', '-'];
-  const qna = [];
-  qna.push(description);
-  qna.push([]);
-  for (let j = maxCountRounds; j > 0; j -= 1) {
+  const rounds = [];
+  for (let i = maxCountRounds; i > 0; i -= 1) {
     const firstArg = getRandomNum(-100, 100);
     const secondArg = getRandomNum(-100, 100);
     const operator = ops[getRandomNum(0, 2)];
-    const question = `Question: ${firstArg} ${operator} ${secondArg}`;
+    const question = `${firstArg} ${operator} ${secondArg}`;
     const correctAnswer = toCalc(firstArg, secondArg, operator);
-    const questionAndAnswer = 1;
-    qna[questionAndAnswer].push([question, correctAnswer]);
+    rounds.push([question, correctAnswer.toString()]);
   }
-  startQuest(qna);
-  return true;
+  run(description, rounds);
 };
