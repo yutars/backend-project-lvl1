@@ -9,16 +9,14 @@ const isNumberPrime = (n) => {
   }
   return true;
 };
-const roundCounter = (maxCount = maxCountRounds) => _.range(maxCount);
-
+const generateRound = () => {
+  const randomNum = getRandomNum(2, 20);
+  const question = randomNum;
+  const correctAnswer = isNumberPrime(randomNum) ? 'yes' : 'no';
+  return [question, correctAnswer];
+};
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 export default () => {
-  const rounds = [];
-  roundCounter().forEach(() => {
-    const randomNum = getRandomNum(2, 20);
-    const question = randomNum;
-    const correctAnswer = isNumberPrime(randomNum) ? 'yes' : 'no';
-    rounds.push([question, correctAnswer]);
-  });
+  const rounds = _.range(maxCountRounds).map(() => generateRound());
   run(description, rounds);
 };

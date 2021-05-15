@@ -20,18 +20,17 @@ const calc = (first, second, op) => {
   return +result;
 };
 
-const roundCounter = (maxCount = maxCountRounds) => _.range(maxCount);
 const description = 'What is the result of the expression?';
-export default () => {
+const generateRound = () => {
   const ops = ['*', '+', '-'];
-  const rounds = [];
-  roundCounter().forEach(() => {
-    const firstArg = getRandomNum(-100, 100);
-    const secondArg = getRandomNum(-100, 100);
-    const operator = ops[getRandomNum(0, 2)];
-    const question = `${firstArg} ${operator} ${secondArg}`;
-    const correctAnswer = calc(firstArg, secondArg, operator);
-    rounds.push([question, correctAnswer.toString()]);
-  });
+  const firstArg = getRandomNum(-100, 100);
+  const secondArg = getRandomNum(-100, 100);
+  const operator = ops[getRandomNum(0, ops.length - 1)];
+  const question = `${firstArg} ${operator} ${secondArg}`;
+  const correctAnswer = calc(firstArg, secondArg, operator).toString();
+  return [question, correctAnswer];
+};
+export default () => {
+  const rounds = _.range(maxCountRounds).map(() => generateRound());
   run(description, rounds);
 };
