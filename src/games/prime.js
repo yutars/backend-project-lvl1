@@ -9,13 +9,16 @@ const isNumberPrime = (n) => {
   }
   return true;
 };
+
 const generateRound = () => {
   const randomNum = getRandomNum(2, 20);
-  const question = randomNum;
-  const correctAnswer = isNumberPrime(randomNum) ? 'yes' : 'no';
-  return [question, correctAnswer];
+  const question = randomNum.toString();
+  const answer = isNumberPrime(randomNum) ? 'yes' : 'no';
+  return [question, answer];
 };
+
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 export default () => {
   const rounds = _.range(maxCountRounds).map(() => generateRound());
   run(description, rounds);
